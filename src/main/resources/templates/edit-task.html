@@ -2,26 +2,59 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Edit Task</title>
-</head>
+<link rel="stylesheet" href="/css/style.css"></head>
 <body>
 
-<h1>Edit Task</h1>
+<div class="navbar">
+    <div class="brand">FamilyChore</div>
+    <div class="nav-links">
+        <a th:href="@{/}">Dashboard</a>
+        <a th:href="@{/tasks}">Tasks</a>
+    </div>
+</div>
 
-<form th:action="@{/tasks/save}" th:object="${task}" method="post">
-    <input type="hidden" th:field="*{taskId}" />
+<div class="container">
+    <div class="card form-card">
+        <h1 class="page-title">Edit Task</h1>
 
-    Title: <input type="text" th:field="*{title}" /><br>
-    Description: <input type="text" th:field="*{description}" /><br>
-    Due Date: <input type="date" th:field="*{dueDate}" /><br>
-    Status:
-    <select th:field="*{status}">
-        <option value="Pending">Pending</option>
-        <option value="Completed">Completed</option>
-        <option value="Overdue">Overdue</option>
-    </select><br>
+        <form th:action="@{/tasks/save}" th:object="${task}" method="post">
+            <input type="hidden" th:field="*{taskId}" />
 
-    <button type="submit">Update Task</button>
-</form>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input id="title" type="text" th:field="*{title}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input id="description" type="text" th:field="*{description}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="dueDate">Due Date</label>
+                <input id="dueDate" type="date" th:field="*{dueDate}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" th:field="*{status}">
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Overdue">Overdue</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn" type="submit">Update Task</button>
+                <a class="btn btn-secondary" th:href="@{/tasks}">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="footer">
+    FamilyChore ✨ Cloud Application
+</div>
 
 </body>
 </html>

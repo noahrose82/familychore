@@ -1,15 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Dashboard</title>
-</head>
+    <title>FamilyChore Dashboard</title>
+<link rel="stylesheet" href="/css/style.css"></head>
 <body>
 
-<h1>Family Chore Dashboard</h1>
+<div class="navbar">
+    <div class="brand">FamilyChore</div>
+    <div class="nav-links">
+        <a th:href="@{/}">Dashboard</a>
+        <a th:href="@{/tasks}">Tasks</a>
+    </div>
+</div>
 
-<p>App is working ✅</p>
+<div class="container">
+    <div class="card hero">
+        <<h1>Welcome to FamilyChore ✨</h1>
+            <p>Bright, simple, and fun task management for the whole family.</p>
+        <div class="status-badge">App is working ✅</div>
+        <div>
+            <a class="btn" th:href="@{/tasks}">Go to Tasks</a>
+        </div>
+    </div>
+</div>
 
-<a href="/tasks">Go to Tasks</a>
+<div class="footer">
+    FamilyChore ✨ Cloud Application
+</div>
 
 </body>
 </html>
